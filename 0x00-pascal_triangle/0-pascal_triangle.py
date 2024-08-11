@@ -1,22 +1,27 @@
 #!/usr/bin/python3
 
-def pascal_triangle(n):
-    """
-    Returns a list of lists representing Pascal's triangle up to the nth row.
-    Returns an empty list if n <= 0.
-    """
-    if n <= 0:
-        return []
+"""Solves the interview problem"""
 
+
+def pascal_triangle(n):
+    """Prints pascal triangle based on value of n"""
     triangle = []
 
-    for i in range(n):
-        row = [1] * (i + 1)
-        for j in range(1, i):
-            row[j] = triangle[i - 1][j - 1] + triangle[i - 1][j]
-        triangle.append(row)
+    for k in range(n):
+        firm = []
+
+        if k == 0:
+            firm = [1]
+            triangle.append(firm)
+        elif k == 1:
+            firm = [1, 1]
+            triangle.append(firm)
+        else:
+            firm = [1]
+            last_value = triangle[len(triangle) - 1]
+            for l in range(len(last_value) - 1):
+                firm.append(last_value[l] + last_value[l+1])
+            firm.append(1)
+            triangle.append(firm)
 
     return triangle
-
-for row in pascal_triangle(5):
-    print(row)
