@@ -3,8 +3,7 @@
 Main file for testing
 """
 
-
-def makeChange(coins, amount):
+def makeChange(coins, total):
     """
     How many of this type of coin can I get with my money? Okay,
         I'll take that many. Now, how much money do I have left?
